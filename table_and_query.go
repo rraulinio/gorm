@@ -11,7 +11,7 @@ func (s *DB) TableAndQuery() (string, string) {
 	scope.InstanceSet("skip_bindvar", true)
 	scope.prepareQuerySQL()
 
-	qs := LogFormatter("q", "0", time.Duration(0), scope.SQL, scope.SQLVars, int64(0))
+	qs := LogFormatter("sql", "q", time.Duration(1), scope.SQL, scope.SQLVars, int64(1))
 	t, q := scope.TableName(), qs[3].(string)
 	if t == "" {
 		qsplit := strings.Fields(strings.ToLower(q))
